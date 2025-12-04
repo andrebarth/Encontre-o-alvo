@@ -1,0 +1,73 @@
+/* Estilos Gerais */
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background-color: #f4f4f9;
+    color: #333;
+    text-align: center;
+}
+
+.container {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    color: #4CAF50;
+    margin-bottom: 5px;
+}
+
+p {
+    margin-bottom: 20px;
+}
+
+/* Estilo do Alvo (Quadrado Vermelho) */
+.alvo {
+    width: 100px;
+    height: 100px;
+    background-color: #F44336; /* Vermelho - O alvo */
+    margin: 30px auto;
+    cursor: pointer;
+    border-radius: 15px;
+    transition: all 0.5s ease-in-out;
+    box-shadow: 0 0 10px rgba(244, 67, 54, 0.5);
+}
+
+/* 1. Lógica do Jogo (CSS Pura) */
+
+/* Quando o mouse passa sobre o alvo... */
+.alvo:hover {
+    /* 1.1 O alvo desaparece (fica invisível) */
+    opacity: 0;
+    transform: scale(0.5); /* E encolhe um pouco */
+}
+
+/* 2. Estilo da Mensagem de Vitória */
+
+.vitoria {
+    /* Escondida por padrão */
+    opacity: 0;
+    height: 0;
+    overflow: hidden;
+    padding: 0;
+    color: #007bff;
+    transition: opacity 0.5s ease 0.5s, height 0s linear 0.5s; /* Adia a transição de opacidade */
+}
+
+/* 3. Ativação da Vitória */
+
+/* O segredo: usamos o seletor de irmão adjacente (~) para estilizar a vitória */
+/* Quando o mouse está sobre o alvo, o seletor atinge o div.vitoria que é seu irmão */
+.alvo:hover ~ .vitoria {
+    /* 3.1 A mensagem de vitória aparece */
+    opacity: 1;
+    height: auto; /* Permite que o conteúdo seja exibido */
+    padding: 20px 0;
+    transition: opacity 0.5s ease 0.5s, height 0s linear 0s; /* Mostra imediatamente o conteúdo */
+}
