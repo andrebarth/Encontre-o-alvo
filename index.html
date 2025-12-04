@@ -3,22 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Encontre o Alvo (HTML/CSS)</title>
+    <title>Jogo da Velha (Tic-Tac-Toe)</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
     <div class="container">
-        <h1>Encontre o Alvo!</h1>
-        <p>Passe o mouse sobre o **alvo vermelho** para ganhar!</p>
+        <h1>Jogo da Velha</h1>
+        
+        <div id="status">Vez do Jogador X</div>
 
-        <div class="alvo"></div>
-
-        <div class="vitoria">
-            <h2>🏆 Parabéns! Você encontrou o alvo!</h2>
-            <p>Este jogo usa apenas HTML e CSS.</p>
+        <div class="tabuleiro">
+            <div class="celula" data-index="0"></div>
+            <div class="celula" data-index="1"></div>
+            <div class="celula" data-index="2"></div>
+            <div class="celula" data-index="3"></div>
+            <div class="celula" data-index="4"></div>
+            <div class="celula" data-index="5"></div>
+            <div class="celula" data-index="6"></div>
+            <div class="celula" data-index="7"></div>
+            <div class="celula" data-index="8"></div>
         </div>
+
+        <button id="reiniciar">Reiniciar Jogo</button>
     </div>
+
+    <script src="script.js"></script>
 
 </body>
 </html>

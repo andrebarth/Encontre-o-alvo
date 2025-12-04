@@ -1,73 +1,83 @@
-/* Estilos Gerais */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     margin: 0;
-    background-color: #f4f4f9;
-    color: #333;
-    text-align: center;
+    background-color: #34495e; /* Fundo escuro */
+    color: #ecf0f1;
 }
 
 .container {
-    background: #ffffff;
+    background: #2c3e50;
     padding: 30px;
     border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+    text-align: center;
 }
 
 h1 {
     color: #4CAF50;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
 }
 
-p {
+#status {
+    font-size: 1.2em;
     margin-bottom: 20px;
+    font-weight: bold;
+    color: #f1c40f; /* Amarelo para destaque */
 }
 
-/* Estilo do Alvo (Quadrado Vermelho) */
-.alvo {
-    width: 100px;
-    height: 100px;
-    background-color: #F44336; /* Vermelho - O alvo */
-    margin: 30px auto;
+/* Estilo do Tabuleiro */
+.tabuleiro {
+    display: grid;
+    grid-template-columns: repeat(3, 100px); /* 3 colunas de 100px */
+    grid-template-rows: repeat(3, 100px); /* 3 linhas de 100px */
+    gap: 5px;
+    margin: 20px auto;
+    border: 3px solid #3498db; /* Borda azul */
+}
+
+/* Estilo das Células */
+.celula {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3em;
+    font-weight: bold;
+    background-color: #ecf0f1; /* Fundo branco */
+    color: #2c3e50;
     cursor: pointer;
-    border-radius: 15px;
-    transition: all 0.5s ease-in-out;
-    box-shadow: 0 0 10px rgba(244, 67, 54, 0.5);
+    transition: background-color 0.2s;
 }
 
-/* 1. Lógica do Jogo (CSS Pura) */
-
-/* Quando o mouse passa sobre o alvo... */
-.alvo:hover {
-    /* 1.1 O alvo desaparece (fica invisível) */
-    opacity: 0;
-    transform: scale(0.5); /* E encolhe um pouco */
+.celula:hover {
+    background-color: #bdc3c7;
 }
 
-/* 2. Estilo da Mensagem de Vitória */
-
-.vitoria {
-    /* Escondida por padrão */
-    opacity: 0;
-    height: 0;
-    overflow: hidden;
-    padding: 0;
-    color: #007bff;
-    transition: opacity 0.5s ease 0.5s, height 0s linear 0.5s; /* Adia a transição de opacidade */
+/* Estilos para os Símbolos X e O */
+.celula.X {
+    color: #e74c3c; /* Vermelho para X */
 }
 
-/* 3. Ativação da Vitória */
+.celula.O {
+    color: #3498db; /* Azul para O */
+}
 
-/* O segredo: usamos o seletor de irmão adjacente (~) para estilizar a vitória */
-/* Quando o mouse está sobre o alvo, o seletor atinge o div.vitoria que é seu irmão */
-.alvo:hover ~ .vitoria {
-    /* 3.1 A mensagem de vitória aparece */
-    opacity: 1;
-    height: auto; /* Permite que o conteúdo seja exibido */
-    padding: 20px 0;
-    transition: opacity 0.5s ease 0.5s, height 0s linear 0s; /* Mostra imediatamente o conteúdo */
+/* Botão de Reiniciar */
+#reiniciar {
+    padding: 10px 20px;
+    margin-top: 20px;
+    font-size: 1em;
+    cursor: pointer;
+    background-color: #e67e22; /* Laranja */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+#reiniciar:hover {
+    background-color: #d35400;
 }
